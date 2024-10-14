@@ -1,38 +1,243 @@
+/* General Reset and Font Family */
+body {
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e2e9ef 100%); /* Gradient background */
+  transition: background 0.3s, color 0.3s; /* Smooth transition for dark mode */
+}
+
+/* Light Mode Styles */
+body.light-mode {
+  color: #333;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #000000; /* Set black background for dark mode */
+  color: #fefefe; /* Lighter text for contrast */
+}
+
+/* App Container */
 .App {
   text-align: center;
+  padding: 30px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header Styles */
+h1 {
+  font-size: 3em; /* Larger heading */
+  margin-bottom: 20px;
+  color: #4a4a4a; /* Darker color for contrast */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Input Fields */
+input[type="text"],
+input[type="time"] {
+  padding: 12px 15px;
+  font-size: 18px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Input Focus Effect */
+input[type="text"]:focus,
+input[type="time"]:focus {
+  border-color: #4caf50; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Subtle shadow */
+}
+
+/* Dark Mode Input Fields */
+body.dark-mode input[type="text"],
+body.dark-mode input[type="time"] {
+  background-color: #333; /* Dark background for input fields */
+  color: white; /* Light text for input */
+  border: 1px solid #666; /* Darker border */
+}
+
+/* Button Styles */
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  background: linear-gradient(135deg, #4caf50 30%, #81c784 100%); /* Gradient background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s; /* Smooth transitions */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* Dark Mode Button Styles */
+body.dark-mode button {
+  background: linear-gradient(135deg, #00796b 30%, #009688 100%); /* Darker gradient for buttons */
+}
+
+/* Button Hover Effect */
+button:hover {
+  background: linear-gradient(135deg, #66bb6a 30%, #a5d6a7 100%); /* Darker gradient on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* List Styles */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Habit Item Styles */
+li {
+  position: relative; /* Position for flipping effect */
+  display: inline-block; /* Inline for multiple cards */
+  width: 300px; /* Fixed width for uniformity */
+  margin: 15px; /* Spacing between cards */
+  perspective: 1000px; /* Perspective for 3D effect */
+}
+
+/* Card Styles */
+.card {
+  width: 100%;
+  height: 200px; /* Fixed height for uniformity */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Card shadow */
+  transition: transform 0.6s; /* Smooth flip transition */
+  position: relative; /* For absolute child positioning */
+  overflow: hidden; /* Hide overflowing content */
+}
+
+/* Card Front and Back */
+.card-front, .card-back {
+  position: absolute; /* Absolute position for flipping */
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hide back face when flipped */
+  border-radius: 15px; /* Rounded corners */
+}
+
+/* Card Front Background */
+.card-front {
+  background: white; /* White front background */
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+/* Dark Mode Card Front */
+body.dark-mode .card-front {
+  background: #1e1e1e; /* Darker background for the front in dark mode */
+}
+
+/* Card Back Styles */
+.card-back {
+  background: #4caf50; /* Green background for back */
+  color: white; /* White text on back */
+  transform: rotateY(180deg); /* Flip back side */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em; /* Larger font for notifications */
+}
+
+/* Dark Mode Card Back */
+body.dark-mode .card-back {
+  background: #00796b; /* Darker green background for back in dark mode */
+}
+
+/* Card Hover Effect */
+li:hover .card {
+  transform: rotateY(180deg); /* Rotate on hover */
+}
+
+/* Streak and Badge Styles */
+.streak {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Dark Mode Streak and Badge */
+body.dark-mode .streak {
+  color: #ccc; /* Lighter streak color in dark mode */
+}
+
+.badge {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #ffbf00;
+}
+
+/* Dark Mode Badge */
+body.dark-mode .badge {
+  color: #ffd700; /* Gold color in dark mode */
+}
+
+/* Floating Action Button */
+.fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4caf50; /* Green background */
   color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Floating effect */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s; /* Smooth transitions */
+  font-size: 24px; /* Font size for icon */
 }
 
-.App-link {
-  color: #61dafb;
+/* Dark Mode Floating Action Button */
+body.dark-mode .fab {
+  background-color: #66bb6a; /* Darker background for FAB in dark mode */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Floating Action Button Hover Effect */
+.fab:hover {
+  background-color: #66bb6a; /* Darker on hover */
+  transform: scale(1.1); /* Scale effect */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .App {
+    padding: 20px; /* Reduce padding on smaller screens */
   }
-  to {
-    transform: rotate(360deg);
+
+  h1 {
+    font-size: 2.5em; /* Smaller heading size */
+  }
+
+  input[type="text"],
+  input[type="time"],
+  button {
+    font-size: 16px; /* Smaller font size */
+    width: 100%; /* Full width for mobile */
+  }
+
+  li {
+    width: 90%; /* Full width for mobile cards */
+    margin: 10px auto; /* Center cards on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2em; /* Smaller heading size */
+  }
+
+  button {
+    padding: 10px 20px; /* Smaller button padding */
+  }
+
+  .badge {
+    font-size: 18px; /* Smaller badge size */
   }
 }
